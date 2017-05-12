@@ -8,13 +8,14 @@ WordGeneratorWithFreemarker是插件对外提供的一个工具类，也是用�
 
 - createDoc(String templatePath, String templateName, Map<String, Object> dataMap, String outPath)
 -
-	  /**
-     * 创建doc文件
-     * @param templatePath 模板所在路径 xxx/xxx/template
-     * @param templateName 模板名字 xxx.ftl
-     * @param dataMap 数据集合
-     * @param outPath 输出文件路径  xxx/xxx/xxx.doc
-     */
+		 /**
+	     * 创建doc文件
+	     * @param templatePath 模板所在路径 xxx/xxx/template
+	     * @param templateName 模板名字 xxx.ftl
+	     * @param dataMap 数据集合
+	     * @param outPath 输出文件路径  xxx/xxx/xxx.doc
+	     */
+
 - createRichHtmlHandler(RichObject richObject)
 -       
 		/**
@@ -22,20 +23,22 @@ WordGeneratorWithFreemarker是插件对外提供的一个工具类，也是用�
 	     * @param richObject 需要的参数
 	     * @return
 	     */
+
 - getImagesBase64String(List<RichHtmlHandler> richHtmlHandlerList)
 -       
-    /**
-     * 获取图片的64位字符串
-     * @param richHtmlHandlerList
-     * @return
-     */
+	    /**
+	     * 获取图片的64位字符串
+	     * @param richHtmlHandlerList
+	     * @return
+	     */
+
 - getXmlImgHref(List<RichHtmlHandler> richHtmlHandlerList)
 -       
-    /**
-     * 获取图片在xml中的端路径
-     * @param richHtmlHandlerList
-     * @return
-     */
+	    /**
+	     * 获取图片在xml中的端路径
+	     * @param richHtmlHandlerList
+	     * @return
+	     */
 
 ## 基本原理： ##
 由于我们是要用word来解析带图片的富文本（说白了就是解析一段html，当然这段html代码是包含img标签：图片）,so...传统的word模板导出（word另存为xml，在修改后缀为ftl）是行不通的，因为他解析不了html代码（至少我目前没有找到这方便的解决方案，大神勿喷~），这样的话我就要换用一种模板来处理这个模板：word模板另存为mht格式，再修改后缀为ftl。剩下的就是后台操作了，找到你存富文本的字段（html代码）获取里面的img标签，找到图片，并把图片解析为base64字符串，填充到我们只做的模板上就ok了。
