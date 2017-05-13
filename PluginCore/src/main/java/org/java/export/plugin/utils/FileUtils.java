@@ -24,24 +24,22 @@ public class FileUtils {
     public static String getImageContentType(String fileTypeName){
         String result="image/jpeg";
         //http://tools.jb51.net/table/http_content_type
-        if(fileTypeName.equals("tif") || fileTypeName.equals("tiff")){
+        if(("tif").equals(fileTypeName) || ("tiff").equals(fileTypeName)){
             result="image/tiff";
-        }else if(fileTypeName.equals("fax")){
+        }else if(("fax").equals(fileTypeName)){
             result="image/fax";
-        }else if(fileTypeName.equals("gif")){
+        }else if(("gif").equals(fileTypeName)){
             result="image/gif";
-        }else if(fileTypeName.equals("ico")){
+        }else if(("ico").equals(fileTypeName)){
             result="image/x-icon";
-        }else if(fileTypeName.equals("jfif") || fileTypeName.equals("jpe")
-                ||fileTypeName.equals("jpeg")  ||fileTypeName.equals("jpg")){
+        }else if(("jfif").equals(fileTypeName) || ("jpe").equals(fileTypeName)
+                ||("jpeg").equals(fileTypeName)  || ("jpg").equals(fileTypeName)){
             result="image/jpeg";
-        }else if(fileTypeName.equals("net")){
+        }else if(("net").equals(fileTypeName)){
             result="image/pnetvue";
-        }else if(fileTypeName.equals("png") || fileTypeName.equals("bmp") ){
+        }else if(("png").equals(fileTypeName) || ("bmp").equals(fileTypeName) ){
             result="image/png";
-        }else if(fileTypeName.equals("rp")){
-            result="image/vnd.rn-realpix";
-        }else if(fileTypeName.equals("rp")){
+        }else if(("rp").equals(fileTypeName)){
             result="image/vnd.rn-realpix";
         }
         return result;
